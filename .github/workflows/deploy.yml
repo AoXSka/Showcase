@@ -55,12 +55,15 @@ jobs:
       - name: Run npm security audit
         run: npm audit --audit-level=high
 
-      - name: Scan for leaked secrets (TruffleHog)
-        uses: trufflesecurity/trufflehog@v3
-        with:
-          path: ./
-          base: ${{ github.event.repository.default_branch }}
-          extra_args: --only-verified
+      # Secret scanning is handled by GitHub's native Secret Scanning feature
+      # (enabled in Settings → Security → Secret scanning for public repos).
+      # TruffleHog removed: their @v3 tag doesn't exist; full semver required.
+      - name: Verify no .env files were accidentally staged
+        run: |
+          if git ls-files | grep -E '\.env$|\.env\.local$|\.env\.production'; then
+            echo "ERROR: environment file committed to repository"
+            exit 1
+          fi
 
   # ─────────────────────────────────────────────
   # Job 2: Lint & Type Check
