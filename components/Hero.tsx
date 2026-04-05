@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 
 const terminalLines = [
   { prompt: '$', text: 'whoami', color: 'text-cyan-400' },
-  { prompt: '>', text: 'Reliable Systems Architect — devops · security · ai-agents', color: 'text-green-400' },
-  { prompt: '$', text: 'cat ./stack/core.conf', color: 'text-cyan-400' },
-  { prompt: '>', text: 'Node.js  React  Python  Express.js  SQL  REST/WebSocket', color: 'text-slate-300' },
-  { prompt: '$', text: 'ls ./infra/', color: 'text-cyan-400' },
-  { prompt: '>', text: 'docker/  ci-cd/  linux/  nginx/  cloudflare/  monitoring/', color: 'text-slate-300' },
-  { prompt: '$', text: 'tail -n 3 ./projects/TEO/exec.log', color: 'text-cyan-400' },
-  { prompt: '>', text: '[OK] ORDER_EXECUTED  latency=47ms  precision=100%  keys=AES-256', color: 'text-green-400' },
+  { prompt: '>', text: 'David Castillo — Full-Stack · DevOps · Security Engineer', color: 'text-green-400' },
+  { prompt: '$', text: 'cat ./company.conf', color: 'text-cyan-400' },
+  { prompt: '>', text: 'Celestial Current Solutions · Venezuela (Remote)', color: 'text-slate-300' },
+  { prompt: '$', text: 'ls ./stack/', color: 'text-cyan-400' },
+  { prompt: '>', text: 'node.js  python  fastapi  react  docker  linux  github-actions', color: 'text-slate-300' },
+  { prompt: '$', text: 'tail -n 2 ./projects/TEO/exec.log', color: 'text-cyan-400' },
+  { prompt: '>', text: '[OK] ORDER_EXECUTED  latency=47ms  keys=AES-256  incidents=0', color: 'text-green-400' },
 ];
 
 const metrics = [
@@ -25,7 +25,6 @@ export default function Hero() {
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    // Reveal terminal lines one by one
     const delays = [800, 1400, 2200, 2900, 3600, 4200, 5100, 5900];
     const timers = delays.map((delay, i) =>
       setTimeout(() => setVisibleLines(i + 1), delay)
@@ -67,16 +66,19 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Role line */}
-          <p className="fade-up fade-up-delay-3 font-mono text-sm text-slate-400 tracking-widest uppercase">
-            Full-Stack Engineer &nbsp;·&nbsp; DevOps Architect &nbsp;·&nbsp; Security-First Designer
-          </p>
+          {/* Name + Role */}
+          <div className="fade-up fade-up-delay-3 space-y-1">
+            <p className="text-xl font-semibold text-slate-200">David Castillo</p>
+            <p className="font-mono text-sm text-slate-400 tracking-widest uppercase">
+              Full-Stack Engineer &nbsp;·&nbsp; DevOps Architect &nbsp;·&nbsp; Security-First Designer
+            </p>
+          </div>
 
           {/* Description */}
           <p className="fade-up fade-up-delay-4 text-slate-400 text-base leading-relaxed max-w-lg">
-            Building high-availability infrastructure, autonomous AI agents, and
-            zero-trust security systems. Engineered for precision, resilience, and
-            measurable outcomes—not adjectives.
+            Building high-availability infrastructure, autonomous AI trading agents, and
+            penetration-tested security architectures. Mechatronics engineering background
+            applied to systems that are precise, resilient, and zero-trust by default.
           </p>
 
           {/* CTAs */}
@@ -114,7 +116,7 @@ export default function Hero() {
               <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
               <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
-              <span className="ml-3 text-xs text-slate-500">bash — aoxska@sec-node-01</span>
+              <span className="ml-3 text-xs text-slate-500">bash — david@celestial-sec-node</span>
               <div className="ml-auto flex items-center gap-1.5 text-xs text-slate-600">
                 <span className="w-1 h-1 rounded-full bg-green-500 status-dot"></span>
                 LIVE

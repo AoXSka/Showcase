@@ -9,15 +9,16 @@ export default function Footer() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded border border-cyan-500/40 flex items-center justify-center">
-                <span className="font-mono text-xs font-semibold text-cyan-400">AX</span>
+                <span className="font-mono text-xs font-semibold text-cyan-400">DC</span>
               </div>
               <span className="font-mono text-sm text-slate-400">
-                aoxska<span className="text-cyan-500">.dev</span>
+                david-system<span className="text-cyan-500">.lat</span>
               </span>
             </div>
             <p className="text-xs text-slate-600 font-mono leading-relaxed">
-              Reliable Systems Architect.<br />
-              Venezuela — distributed infrastructure.
+              David Castillo<br />
+              Celestial Current Solutions<br />
+              Venezuela — available remote.
             </p>
           </div>
 
@@ -46,18 +47,26 @@ export default function Footer() {
             <p className="font-mono text-[11px] text-slate-600 tracking-widest uppercase">Contact</p>
             <div className="space-y-2">
               <a
-                href="mailto:contact@aoxska.dev"
+                href="mailto:david.j.castillo.g97@gmail.com"
                 className="block font-mono text-xs text-slate-500 hover:text-cyan-400 transition-colors"
               >
-                contact@aoxska.dev
+                david.j.castillo.g97@gmail.com
               </a>
               <a
-                href="https://github.com/aoxska"
+                href="https://linkedin.com/in/david-castillo-b87626163"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block font-mono text-xs text-slate-500 hover:text-cyan-400 transition-colors"
               >
-                github.com/aoxska
+                linkedin.com/in/david-castillo-b87626163
+              </a>
+              <a
+                href="https://github.com/AoXSka"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block font-mono text-xs text-slate-500 hover:text-cyan-400 transition-colors"
+              >
+                github.com/AoXSka
               </a>
             </div>
           </div>
@@ -67,7 +76,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="font-mono text-[11px] text-slate-700">
-            © {year} AoXSka. MIT License. Build with Next.js + Tailwind CSS.
+            © {year} David Castillo. MIT License. Built with Next.js + Tailwind CSS.
           </p>
           <div className="flex items-center gap-4 font-mono text-[11px] text-slate-700">
             <span>CSP · HSTS · AES-256</span>

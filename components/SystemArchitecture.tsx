@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type Skill = {
   name: string;
-  level: number; // 0-100
+  level: number;
   tag?: string;
 };
 
@@ -27,15 +27,15 @@ const layers: Layer[] = [
     icon: '⬡',
     accent: 'text-cyan-400',
     borderColor: 'border-cyan-500/20 hover:border-cyan-400/50',
-    description: 'Application logic, data modeling, and API design. Where business requirements become executable systems.',
+    description: 'Application logic, API design, and data modeling. Mechatronics engineering background applied to precision-first system architecture.',
     skills: [
       { name: 'Node.js', level: 92, tag: 'runtime' },
-      { name: 'React / Next.js', level: 90, tag: 'frontend' },
-      { name: 'Python', level: 88, tag: 'automation·ai' },
+      { name: 'Python / FastAPI', level: 90, tag: 'backend·ai' },
+      { name: 'React / Next.js', level: 88, tag: 'frontend' },
       { name: 'Express.js', level: 91, tag: 'backend' },
       { name: 'SQL / PostgreSQL', level: 85, tag: 'data' },
       { name: 'REST / WebSocket', level: 93, tag: 'protocol' },
-      { name: 'TypeScript', level: 82, tag: 'typing' },
+      { name: 'TypeScript', level: 83, tag: 'typing' },
     ],
   },
   {
@@ -45,15 +45,15 @@ const layers: Layer[] = [
     icon: '◈',
     accent: 'text-orange-400',
     borderColor: 'border-orange-500/20 hover:border-orange-400/50',
-    description: 'Container orchestration, automated deployments, and infrastructure hardening. Zero-downtime is the baseline.',
+    description: 'Container orchestration, CI/CD automation, and hardened infrastructure. Zero-downtime deployments with encrypted persistence and VPC architecture.',
     skills: [
       { name: 'Docker', level: 90, tag: 'containers' },
-      { name: 'Linux / Bash', level: 88, tag: 'systems' },
-      { name: 'CI/CD (GitHub Actions)', level: 87, tag: 'automation' },
-      { name: 'Nginx', level: 84, tag: 'proxy' },
-      { name: 'Cloudflare', level: 83, tag: 'edge·cdn' },
-      { name: 'Vercel', level: 89, tag: 'deploy' },
-      { name: 'Process Monitoring', level: 85, tag: 'observability' },
+      { name: 'Linux / Bash', level: 89, tag: 'systems' },
+      { name: 'GitHub Actions', level: 88, tag: 'ci·cd' },
+      { name: 'VPC Architecture', level: 84, tag: 'networking' },
+      { name: 'Nginx', level: 83, tag: 'proxy' },
+      { name: 'Cloudflare', level: 82, tag: 'edge·cdn' },
+      { name: 'Process Monitoring', level: 86, tag: 'observability' },
     ],
   },
   {
@@ -63,15 +63,15 @@ const layers: Layer[] = [
     icon: '◉',
     accent: 'text-green-400',
     borderColor: 'border-green-500/20 hover:border-green-400/50',
-    description: 'Defensive security, encryption standards, and hardened configurations. Security is not a feature—it is the foundation.',
+    description: 'Offensive assessment tooling combined with defensive hardening. SAST/DAST pipelines, penetration testing, and encrypted-by-default architectures.',
     skills: [
-      { name: 'AES-256-GCM', level: 90, tag: 'encryption' },
-      { name: 'OWASP Top 10', level: 88, tag: 'compliance' },
-      { name: 'Linux Hardening', level: 86, tag: 'baseline' },
-      { name: 'Content Security Policy', level: 87, tag: 'headers' },
-      { name: 'JWT / API Auth', level: 91, tag: 'zero-trust' },
-      { name: 'DevSecOps', level: 84, tag: 'pipeline' },
-      { name: 'Dependency Auditing', level: 85, tag: 'supply-chain' },
+      { name: 'AES-256-GCM', level: 91, tag: 'encryption' },
+      { name: 'Burp Suite / OWASP ZAP', level: 87, tag: 'pentest' },
+      { name: 'Nmap', level: 85, tag: 'recon' },
+      { name: 'OWASP Top 10', level: 89, tag: 'compliance' },
+      { name: 'DevSecOps / SAST·DAST', level: 86, tag: 'pipeline' },
+      { name: 'OAuth2 / JWT', level: 90, tag: 'auth' },
+      { name: 'Linux Hardening', level: 88, tag: 'baseline' },
     ],
   },
 ];
@@ -134,7 +134,6 @@ function SkillRow({ skill, accent, delay }: { skill: Skill; accent: string; dela
 export default function SystemArchitecture() {
   return (
     <section id="architecture" className="relative py-32 px-6">
-      {/* Section header */}
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 space-y-3">
           <div className="flex items-center gap-3">
@@ -151,14 +150,12 @@ export default function SystemArchitecture() {
           </p>
         </div>
 
-        {/* Three layer cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {layers.map((layer, li) => (
             <div
               key={layer.id}
               className={`card-border rounded-xl p-6 space-y-6 transition-all duration-300 border ${layer.borderColor}`}
             >
-              {/* Card header */}
               <div className="space-y-1">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -177,7 +174,6 @@ export default function SystemArchitecture() {
 
               <div className="h-px bg-slate-800/80"></div>
 
-              {/* Skills list */}
               <div className="space-y-4">
                 {layer.skills.map((skill, si) => (
                   <SkillRow
@@ -192,13 +188,12 @@ export default function SystemArchitecture() {
           ))}
         </div>
 
-        {/* Architecture summary */}
         <div className="mt-10 p-5 rounded-xl border border-slate-800 bg-[#0d1117] font-mono text-xs">
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-slate-500">
             <span>
               <span className="text-slate-700">{'// '}</span>
-              Design Pattern:{' '}
-              <span className="text-cyan-400">Security-by-default · Fail-safe · Least-privilege</span>
+              Background:{' '}
+              <span className="text-cyan-400">Mechatronics Engineering · Systems-level precision</span>
             </span>
             <span>
               <span className="text-slate-700">{'// '}</span>
@@ -208,7 +203,7 @@ export default function SystemArchitecture() {
             <span>
               <span className="text-slate-700">{'// '}</span>
               Deployment:{' '}
-              <span className="text-orange-400">Containerized · Edge-distributed</span>
+              <span className="text-orange-400">Containerized · VPC-isolated · Edge-distributed</span>
             </span>
           </div>
         </div>

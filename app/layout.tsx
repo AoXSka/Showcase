@@ -1,37 +1,45 @@
 import type { Metadata } from 'next';
+import SecurityProvider from '@/components/SecurityProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Portfolio — Full-Stack Engineer · DevOps Architect · Security Systems',
+  title: 'David Castillo — Full-Stack Engineer · DevOps · Security',
   description:
-    'Reliable Systems Architect specializing in Full-Stack Engineering, DevOps automation, and Security-First system design. Builder of high-availability infrastructure and autonomous AI systems.',
+    'Full-Stack Engineer, DevOps Architect & Security-First Systems Designer based in Venezuela. Builder of high-availability infrastructure, autonomous AI agents, and penetration-tested architectures.',
   keywords: [
+    'David Castillo',
     'Full-Stack Engineer',
-    'DevOps Architect',
+    'DevOps Engineer',
     'Cybersecurity',
+    'Penetration Testing',
     'Node.js',
-    'React',
     'Python',
+    'FastAPI',
+    'React',
     'Docker',
-    'CI/CD',
+    'GitHub Actions',
     'AES-256',
     'OWASP',
+    'Burp Suite',
     'Linux Hardening',
     'AI Agents',
+    'TEO',
+    'Venezuela',
   ],
-  authors: [{ name: 'AoXSka' }],
+  authors: [{ name: 'David Castillo', url: 'https://david-system.lat' }],
   openGraph: {
     type: 'website',
-    title: 'Portfolio — Systems Engineer · DevOps · Security',
+    url: 'https://david-system.lat',
+    title: 'David Castillo — Full-Stack · DevOps · Security Engineer',
     description:
-      'High-availability systems, zero-trust architecture, and autonomous AI agents. Engineered for precision.',
-    siteName: 'Portfolio',
+      'High-availability systems, zero-trust architecture, and autonomous AI trading agents. Security-first. Engineered for precision.',
+    siteName: 'david-system.lat',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfolio — Systems Engineer · DevOps · Security',
+    title: 'David Castillo — Full-Stack · DevOps · Security Engineer',
     description:
-      'High-availability systems, zero-trust architecture, and autonomous AI agents.',
+      'High-availability systems, zero-trust architecture, and autonomous AI trading agents.',
   },
   robots: {
     index: true,
@@ -60,7 +68,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-[#030712] text-slate-200 antialiased scanline-overlay">
-        {children}
+        <SecurityProvider>
+          {children}
+        </SecurityProvider>
       </body>
     </html>
   );

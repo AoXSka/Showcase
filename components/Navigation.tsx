@@ -30,10 +30,10 @@ export default function Navigation() {
         {/* Logo / identity */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded border border-cyan-500/40 flex items-center justify-center group-hover:border-cyan-400 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] transition-all duration-300">
-            <span className="font-mono text-xs font-semibold text-cyan-400">AX</span>
+            <span className="font-mono text-xs font-semibold text-cyan-400">DC</span>
           </div>
           <span className="font-mono text-sm text-slate-400 group-hover:text-slate-200 transition-colors">
-            aoxska<span className="text-cyan-500">.dev</span>
+            david-system<span className="text-cyan-500">.lat</span>
           </span>
         </a>
 
@@ -55,7 +55,7 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="mailto:contact@aoxska.dev"
+            href="mailto:david.j.castillo.g97@gmail.com"
             className="ml-4 px-4 py-2 font-mono text-xs text-cyan-400 border border-cyan-500/40 rounded hover:bg-cyan-500/10 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-200"
           >
             Contact
@@ -91,7 +91,7 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="mailto:contact@aoxska.dev"
+              href="mailto:david.j.castillo.g97@gmail.com"
               className="block mt-3 px-4 py-3 font-mono text-sm text-cyan-400 border border-cyan-500/30 rounded text-center hover:bg-cyan-500/10 transition-all"
             >
               Contact
