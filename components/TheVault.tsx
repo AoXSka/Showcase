@@ -253,7 +253,7 @@ export default function TheVault() {
 
         {/* Disclaimer */}
         <div className="mt-8 p-4 rounded-lg border border-slate-800 font-mono text-[11px] text-slate-600">
-          <span className="text-slate-700">// </span>
+          <span className="text-slate-700">{'// '}</span>
           All security capabilities listed are defensive in nature. Tooling and techniques are applied
           exclusively to authorized systems. Penetration testing activities are scoped and contracted.
         </div>

@@ -196,17 +196,17 @@ export default function SystemArchitecture() {
         <div className="mt-10 p-5 rounded-xl border border-slate-800 bg-[#0d1117] font-mono text-xs">
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-slate-500">
             <span>
-              <span className="text-slate-700">// </span>
+              <span className="text-slate-700">{'// '}</span>
               Design Pattern:{' '}
               <span className="text-cyan-400">Security-by-default · Fail-safe · Least-privilege</span>
             </span>
             <span>
-              <span className="text-slate-700">// </span>
+              <span className="text-slate-700">{'// '}</span>
               Availability Target:{' '}
               <span className="text-green-400">99.9%+ SLA</span>
             </span>
             <span>
-              <span className="text-slate-700">// </span>
+              <span className="text-slate-700">{'// '}</span>
               Deployment:{' '}
               <span className="text-orange-400">Containerized · Edge-distributed</span>
             </span>

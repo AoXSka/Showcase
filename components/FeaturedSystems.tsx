@@ -249,7 +249,7 @@ export default function FeaturedSystems() {
         {/* "More coming soon" placeholder */}
         <div className="mt-6 p-5 rounded-xl border border-dashed border-slate-800 flex items-center justify-between">
           <div className="font-mono text-xs text-slate-600">
-            <span className="text-slate-700">// </span>
+            <span className="text-slate-700">{'// '}</span>
             Additional systems in active development — ETA: classified
           </div>
           <div className="flex items-center gap-2 font-mono text-xs text-slate-700">
