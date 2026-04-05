@@ -3,10 +3,10 @@ name: CI/CD — Build, Audit & Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - '**'        # Run CI on every branch push
   pull_request:
     branches:
-      - main
+      - main        # Run CI on PRs targeting main
 
 # Required permissions for GitHub Pages deployment
 permissions:
@@ -48,7 +48,7 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Scan for leaked secrets (TruffleHog)
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@v3
         with:
           path: ./
           base: ${{ github.event.repository.default_branch }}

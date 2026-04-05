@@ -32,3 +32,7 @@ updates:
       - "ci/cd"
     commit-message:
       prefix: "chore(actions)"
+    ignore:
+      # Pinned in workflow — only accept patch updates, review majors manually
+      - dependency-name: "actions/setup-node"
+        update-types: ["version-update:semver-major"]
