@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import SecurityProvider from '@/components/SecurityProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -67,7 +68,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-[#030712] text-slate-200 antialiased scanline-overlay">
-        {children}
+        <SecurityProvider>
+          {children}
+        </SecurityProvider>
       </body>
     </html>
   );

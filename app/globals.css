@@ -224,3 +224,41 @@ body {
 .metric-bar-fill {
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ─── Security: content protection ─────────────────────────────────── */
+
+/* Disable image dragging globally */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none; /* blocks right-click save on images */
+}
+
+/* Re-enable pointer-events on anchor-wrapped images */
+a img {
+  pointer-events: auto;
+}
+
+/* Disable text selection on decorative / headline elements */
+h1, h2, h3 {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Keep selection enabled on: code, contact info, nav links, buttons */
+pre, code, a, button, input, textarea,
+[data-selectable] {
+  -webkit-user-select: text;
+  user-select: text;
+  pointer-events: auto;
+}
+
+/* Disable print — prevents "Print to PDF" content extraction */
+@media print {
+  body {
+    display: none !important;
+  }
+}
+
