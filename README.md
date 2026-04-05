@@ -18,7 +18,7 @@
 | Framework | Next.js 14 (App Router) | Static generation, built-in security headers, Edge-compatible |
 | Styling | Tailwind CSS | Utility-first, zero runtime overhead, consistent design tokens |
 | Language | TypeScript (strict) | Type safety eliminates a class of runtime errors at compile time |
-| Deployment | Vercel + Cloudflare Edge | Global CDN, automatic HTTPS, zero-downtime deploys |
+| Deployment | GitHub + Cloudflare Edge | Global CDN, automatic HTTPS, zero-downtime deploys |
 | Container | Docker multi-stage build | Minimal runtime image, non-root user, dumb-init signal handling |
 | CI/CD | GitHub Actions | Security audit → lint → build → deploy pipeline on every push to `main` |
 
@@ -151,33 +151,6 @@ GitHub Pages permissions are granted via the workflow's `permissions` block — 
 
 ---
 
-## Deployment: Namecheap Domain + GitHub Pages
-
-### 1. Enable GitHub Pages
-
-Go to **Settings → Pages → Source** and select **GitHub Actions**.
-
-### 2. Point Namecheap DNS to GitHub Pages
-
-In your Namecheap dashboard → **Advanced DNS**, add these records:
-
-| Type | Host | Value | TTL |
-|---|---|---|---|
-| A | @ | `185.199.108.153` | Auto |
-| A | @ | `185.199.109.153` | Auto |
-| A | @ | `185.199.110.153` | Auto |
-| A | @ | `185.199.111.153` | Auto |
-| CNAME | www | `aoxska.github.io` | Auto |
-
-### 3. Set your custom domain
-
-Edit `public/CNAME` — replace `yourdomain.com` with your actual domain. GitHub Pages reads this file to bind the domain.
-
-### 4. Enable HTTPS
-
-After DNS propagates (~10 min), go to **Settings → Pages** and check **Enforce HTTPS**. GitHub provides a free Let's Encrypt certificate automatically.
-
-### 5. Add the GitHub secret (optional)
 
 ```
 NEXT_PUBLIC_SITE_URL = https://yourdomain.com
