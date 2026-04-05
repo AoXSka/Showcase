@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #030712;
+  --bg-card: #0d1117;
+  --bg-surface: #161b22;
+  --cyber-cyan: #22d3ee;
+  --cyber-green: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.6);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(34, 211, 238, 0.2);
+  color: #22d3ee;
+}
+
+/* ─── Scan line overlay ─── */
+.scanline-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    transparent,
+    rgba(34, 211, 238, 0.05),
+    transparent
+  );
+  animation: scan 10s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── Grid background ─── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Glow effects ─── */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15), 0 0 40px rgba(34, 211, 238, 0.05);
+}
+
+.glow-cyan-hover:hover {
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.25), 0 0 50px rgba(34, 211, 238, 0.1);
+  border-color: rgba(34, 211, 238, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+/* ─── Terminal cursor blink ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Scan line animation ─── */
+@keyframes scan {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ─── Pulse glow ─── */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.7), 0 0 40px rgba(34, 211, 238, 0.3);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ─── Fade up entrance ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.fade-up-delay-4 { animation-delay: 0.5s; opacity: 0; }
+.fade-up-delay-5 { animation-delay: 0.7s; opacity: 0; }
+
+/* ─── Status dot pulse ─── */
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.status-dot {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* ─── Terminal typing lines ─── */
+@keyframes typeLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.type-line {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+}
+
+.type-line-1 { animation: typeLine 0.4s steps(30) 0.8s forwards; }
+.type-line-2 { animation: typeLine 0.5s steps(40) 1.6s forwards; }
+.type-line-3 { animation: typeLine 0.3s steps(25) 2.5s forwards; }
+.type-line-4 { animation: typeLine 0.6s steps(50) 3.2s forwards; }
+.type-line-5 { animation: typeLine 0.4s steps(35) 4.2s forwards; }
+.type-line-6 { animation: typeLine 0.5s steps(45) 5s forwards; }
+.type-line-7 { animation: typeLine 0.4s steps(40) 6s forwards; }
+.type-line-8 { animation: typeLine 0.3s steps(30) 6.8s forwards; }
+
+/* Show cursor only on active line */
+@keyframes showLine {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.show-1 { animation: showLine 0s 0.8s forwards; opacity: 0; }
+.show-2 { animation: showLine 0s 1.6s forwards; opacity: 0; }
+.show-3 { animation: showLine 0s 2.5s forwards; opacity: 0; }
+.show-4 { animation: showLine 0s 3.2s forwards; opacity: 0; }
+.show-5 { animation: showLine 0s 4.2s forwards; opacity: 0; }
+.show-6 { animation: showLine 0s 5s forwards; opacity: 0; }
+.show-7 { animation: showLine 0s 6s forwards; opacity: 0; }
+.show-8 { animation: showLine 0s 6.8s forwards; opacity: 0; }
+
+/* ─── Card border gradient ─── */
+.card-border {
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  background: var(--bg-card);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-border:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.08);
+}
+
+/* ─── Section divider ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.3),
+    rgba(34, 211, 238, 0.3),
+    transparent
+  );
+}
+
+/* ─── Metric bar ─── */
+.metric-bar-fill {
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
