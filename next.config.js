@@ -39,8 +39,17 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  // Static export for GitHub Pages hosting
+  output: 'export',
+  trailingSlash: true,
+
   reactStrictMode: true,
   poweredByHeader: false,
+
+  // Security headers — applied at the CDN/server layer.
+  // Note: Next.js static export does NOT serve response headers directly;
+  // these are declared here as documentation and for Cloudflare/Nginx layers.
+  // For GitHub Pages, enforce CSP via a <meta> tag in layout.tsx instead.
   async headers() {
     return [
       {
@@ -49,8 +58,10 @@ const nextConfig = {
       },
     ];
   },
+
   images: {
-    formats: ['image/avif', 'image/webp'],
+    // Required for static export — Next.js image optimization needs a server
+    unoptimized: true,
   },
 };
 

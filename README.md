@@ -135,19 +135,52 @@ npm run lint
 ```
 push to main
      │
-     ├── security-audit    npm audit (HIGH/CRITICAL = fail) + TruffleHog
+     ├── security-audit    npm audit (HIGH/CRITICAL = fail) + TruffleHog secret scan
      ├── quality           ESLint + TypeScript strict check
-     ├── build             Next.js production build
-     └── deploy            Vercel production (main branch only)
+     ├── build             Next.js static export → ./out/
+     └── deploy            GitHub Pages (main branch only, no external tokens needed)
 ```
 
-Required GitHub secrets:
+Only one optional GitHub secret:
 
 ```
-VERCEL_TOKEN
-VERCEL_ORG_ID
-VERCEL_PROJECT_ID
-NEXT_PUBLIC_SITE_URL
+NEXT_PUBLIC_SITE_URL    # Your production domain, e.g. https://yourdomain.com
+```
+
+GitHub Pages permissions are granted via the workflow's `permissions` block — no third-party tokens required.
+
+---
+
+## Deployment: Namecheap Domain + GitHub Pages
+
+### 1. Enable GitHub Pages
+
+Go to **Settings → Pages → Source** and select **GitHub Actions**.
+
+### 2. Point Namecheap DNS to GitHub Pages
+
+In your Namecheap dashboard → **Advanced DNS**, add these records:
+
+| Type | Host | Value | TTL |
+|---|---|---|---|
+| A | @ | `185.199.108.153` | Auto |
+| A | @ | `185.199.109.153` | Auto |
+| A | @ | `185.199.110.153` | Auto |
+| A | @ | `185.199.111.153` | Auto |
+| CNAME | www | `aoxska.github.io` | Auto |
+
+### 3. Set your custom domain
+
+Edit `public/CNAME` — replace `yourdomain.com` with your actual domain. GitHub Pages reads this file to bind the domain.
+
+### 4. Enable HTTPS
+
+After DNS propagates (~10 min), go to **Settings → Pages** and check **Enforce HTTPS**. GitHub provides a free Let's Encrypt certificate automatically.
+
+### 5. Add the GitHub secret (optional)
+
+```
+NEXT_PUBLIC_SITE_URL = https://yourdomain.com
 ```
 
 ---
