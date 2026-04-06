@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Check for .env files
         run: |
           if git ls-files | grep -E '\.env$|\.env\.local$'; then
@@ -43,7 +43,7 @@ jobs:
     needs: [security-audit] # Solo construye si la auditoría pasa
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
